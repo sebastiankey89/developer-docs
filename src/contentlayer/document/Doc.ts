@@ -1,10 +1,11 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import highlight from 'rehype-highlight';
+
 import {
   urlFromFilePath,
   contentDirPath,
   pathSegmentsFromFilePath,
-} from '../../contentlayer/utils';
+} from 'src/contentlayer/utils';
 
 export const Doc = defineDocumentType(() => ({
   name: 'Doc',
