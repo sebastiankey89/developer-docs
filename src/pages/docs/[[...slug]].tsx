@@ -40,17 +40,12 @@ const DocLayout = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Head>
         <title>{doc.title}</title>
       </Head>
-      <div className="relative mx-auto w-full max-w-screen-2xl lg:flex lg:items-start">
+      <div>
         <article>
           <div>
-            <h1 className="sr-only text-2xl font-semibold text-slate-800 dark:text-slate-200 md:text-3xl lg:not-sr-only lg:text-4xl">
-              {doc.title}
-            </h1>
+            <h1 className="text-2xl font-semibold">{doc.title}</h1>
           </div>
-          <div
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: doc.body.html }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: doc.body.html }} />
         </article>
       </div>
     </>
