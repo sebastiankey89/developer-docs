@@ -20,8 +20,8 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = defineStaticProps(async (context: Context) => {
-  const { params } = context;
+export const getStaticProps = defineStaticProps(async (ctx: Context) => {
+  const { params } = ctx;
   const pagePath = params?.slug?.join('/') ?? '';
 
   const doc = allDocs.find(
