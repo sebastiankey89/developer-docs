@@ -3,7 +3,7 @@ import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 
 import { allDocs } from 'contentlayer/generated';
 import { PathSegment } from 'types/PathSegment';
-import { defineStaticProps, toParams } from 'src/utils/next';
+import { toParams } from 'src/utils/next';
 
 type Context = GetStaticPropsContext<{
   slug?: string[];
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = defineStaticProps(async (ctx: Context) => {
+export const getStaticProps = async (ctx: Context) => {
   const { params } = ctx;
   const pagePath = params?.slug?.join('/') ?? '';
 
@@ -31,7 +31,7 @@ export const getStaticProps = defineStaticProps(async (ctx: Context) => {
   )!;
 
   return { props: { doc } };
-});
+};
 
 const DocLayout = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { doc } = props;
