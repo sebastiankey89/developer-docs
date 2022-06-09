@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 
-import { allDocs, Doc } from 'contentlayer/generated';
+import { allDocs } from 'contentlayer/generated';
 import { PathSegment } from 'types/PathSegment';
 import { defineStaticProps, toParams } from 'src/utils/next';
 

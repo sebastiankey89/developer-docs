@@ -5,7 +5,7 @@ import {
   urlFromFilePath,
   contentDirPath,
   pathSegmentsFromFilePath,
-} from 'src/contentlayer/utils';
+} from '../../contentlayer/utils';
 
 export const Doc = defineDocumentType(() => ({
   name: 'Doc',
