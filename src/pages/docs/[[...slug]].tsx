@@ -10,7 +10,6 @@ type Context = GetStaticPropsContext<{
 }>;
 
 export async function getStaticPaths() {
-  const test = allDocs.map((d) => d.pathSegments);
   const paths = allDocs
     .map((d) => d.pathSegments.map((pS: PathSegment) => pS.pathName).join('/'))
     .map(toParams);
