@@ -4,6 +4,7 @@ import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 import { allDocs } from 'contentlayer/generated';
 import { PathSegment } from 'types/PathSegment';
 import { toParams } from 'src/utils/next';
+import { Container } from 'src/components/common/Container';
 
 type Context = GetStaticPropsContext<{
   slug?: string[];
@@ -36,7 +37,7 @@ export const getStaticProps = async (ctx: Context) => {
 const DocLayout = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { doc } = props;
   return (
-    <>
+    <Container>
       <Head>
         <title>{doc.title}</title>
       </Head>
@@ -45,10 +46,13 @@ const DocLayout = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           <div>
             <h1 className="text-2xl font-semibold">{doc.title}</h1>
           </div>
-          <div dangerouslySetInnerHTML={{ __html: doc.body.html }} />
+          <div
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: doc.body.html }}
+          />
         </article>
       </div>
-    </>
+    </Container>
   );
 };
 
