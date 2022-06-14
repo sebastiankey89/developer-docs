@@ -65,6 +65,11 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
             {MDXContent && <MDXContent />}
           </div>
         </div>
+
+        <div
+          style={{ maxHeight: 'calc(100vh - 128px)' }}
+          className="sticky top-32 hidden w-80 shrink-0 overflow-y-scroll p-8 pr-16 1.5xl:block"
+        ></div>
       </div>
     </DocLayout>
   );
