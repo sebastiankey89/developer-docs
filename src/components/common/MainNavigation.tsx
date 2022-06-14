@@ -70,7 +70,7 @@ export const MainNavigation = () => {
     <header className="fixed z-50 w-full border-b border-gray-200 bg-white bg-opacity-90 backdrop-blur backdrop-filter dark:border-gray-800 dark:bg-gray-950">
       <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-4 md:px-8 lg:px-16">
         <div className="flex items-center space-x-2.5">
-          <Link href="/">
+          <Link href="/docs">
             <a className="flex items-center space-x-2.5 font-bold text-slate-800 no-underline dark:text-white">
               <Logo />
               <span className="-mt-0.5">Raydiant Developer Docs</span>
