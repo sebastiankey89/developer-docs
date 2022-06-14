@@ -6,7 +6,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export const Container: FC<Props> = ({ children }) => {
+export const DocLayout: FC<Props> = ({ children }) => {
   return (
     <>
       <MainNavigation />
