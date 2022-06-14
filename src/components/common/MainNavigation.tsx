@@ -76,6 +76,48 @@ export const MainNavigation = () => {
             </a>
           </Link>
         </div>
+
+        <div className="lg:hidden">
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            onClick={() => setOpen(!open)}
+            className="flex h-8 w-8 items-center justify-end text-slate-600 dark:text-slate-300"
+          >
+            <span className="inline-block w-4">
+              <Icon name={open ? 'close' : 'bars'} />
+            </span>
+          </button>
+          {open && (
+            <div className="fixed inset-0 top-[65px] z-50 h-screen bg-gray-950/10 pb-20 backdrop-blur-lg backdrop-filter dark:bg-gray-950/50">
+              <nav className="absolute right-0 h-full divide-y divide-gray-200 border-l border-gray-200 bg-white p-8 dark:divide-gray-800 dark:border-gray-800 dark:bg-gray-950">
+                <div className="flex flex-col items-end space-y-2 pb-8">
+                  <div className="mb-2"></div>
+                  {navLinks.map(({ label, url }, index) => (
+                    <NavLink
+                      key={index}
+                      label={label}
+                      url={url}
+                      icon={isExternalUrl(url) ? 'external-link' : undefined}
+                    />
+                  ))}
+                </div>
+                <div className="flex items-center justify-end space-x-4 pt-8">
+                  {iconLinks.map(({ label, icon, url }, index) => (
+                    <NavLink
+                      key={index}
+                      label={label}
+                      hideLabel
+                      url={url}
+                      icon={icon}
+                    />
+                  ))}
+                </div>
+              </nav>
+            </div>
+          )}
+        </div>
+
         <nav className="hidden items-center divide-x divide-gray-200 dark:divide-gray-800 lg:flex">
           <div className="flex items-center pr-2 lg:space-x-4 lg:pr-8">
             {navLinks.map(({ label, url }, index) => (
