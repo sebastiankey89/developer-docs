@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { MainNavigation } from './MainNavigation';
+import { MainNavigation } from '../common/MainNavigation';
 
 interface DocLayoutProps {
   children: React.ReactNode;

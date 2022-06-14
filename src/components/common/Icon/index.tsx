@@ -5,15 +5,21 @@ import { ChevronDownIcon } from './ChevronDown';
 import { ChevronRightIcon } from './ChevronRight';
 import { CloseIcon } from './Close';
 import { ExternalLinkIcon } from './ExternalLink';
+import { GearIcon } from './Gear';
 import { GitHubIcon } from './GitHub';
+import { MoonIcon } from './Moon';
+import { SunIcon } from './Sun';
 
 export type IconName =
-  | 'github'
+  | 'bars'
   | 'chevron-right'
   | 'chevron-down'
   | 'close'
-  | 'bars'
-  | 'external-link';
+  | 'external-link'
+  | 'github'
+  | 'sun'
+  | 'moon'
+  | 'gear';
 
 const iconMap = {
   github: GitHubIcon,
@@ -22,6 +28,9 @@ const iconMap = {
   close: CloseIcon,
   'external-link': ExternalLinkIcon,
   bars: BarsIcon,
+  sun: SunIcon,
+  gear: GearIcon,
+  moon: MoonIcon,
 };
 
 export const Icon: FC<{ name: IconName }> = ({ name }) => {

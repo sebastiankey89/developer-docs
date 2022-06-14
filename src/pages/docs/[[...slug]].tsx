@@ -1,14 +1,14 @@
 import React from 'react';
 import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks';
-
 import { allDocs } from 'contentlayer/generated';
-import { DocsHeader } from 'src/components/docs/DocsHeader';
-import { buildDocsTree } from 'src/utils/buildDocsTree';
-import { DocsNavigation } from 'src/components/docs/DocsNavigation';
-import { DocLayout } from 'src/components/common/DocLayout';
-import { PathSegment } from 'types/PathSegment';
-import { toParams } from 'src/utils/next';
+
+import { DocsHeader } from '../../components/docs/DocsHeader';
+import { buildDocsTree } from '../../utils/buildDocsTree';
+import { DocsNavigation } from '../../components/docs/DocsNavigation';
+import { DocLayout } from '../../components/docs/DocLayout';
+import { PathSegment } from '../../../types/PathSegment';
+import { toParams } from '../../utils/next';
 
 type Context = GetStaticPropsContext<{
   slug?: string[];
