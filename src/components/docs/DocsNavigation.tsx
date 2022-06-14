@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 
-import { TreeNode } from 'types/TreeNode';
+import { TreeNode } from '../../../types/TreeNode';
 import { Icon } from '../common/Icon';
 
 interface NavLinkProps {

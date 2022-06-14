@@ -9,6 +9,7 @@ import {
   useMemo,
   useCallback,
 } from 'react';
+
 import { ColorScheme } from '../utils/syntaxHighlighting';
 
 const ColorSchemeContext = createContext<'light' | 'dark' | 'system'>('light');

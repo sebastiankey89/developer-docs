@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { FC, useState, useEffect } from 'react';
 
-import { TreeNode } from 'types/TreeNode';
+import { TreeNode } from '../../../types/TreeNode';
 import { Icon } from '../common/Icon';
 import { DocsNavigation } from './DocsNavigation';
 

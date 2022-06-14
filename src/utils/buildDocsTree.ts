@@ -1,6 +1,7 @@
 import { Doc } from 'contentlayer/generated';
-import { PathSegment } from 'types/PathSegment';
-import { TreeNode } from 'types/TreeNode';
+
+import { PathSegment } from '../../types/PathSegment';
+import { TreeNode } from '../../types/TreeNode';
 
 export const buildDocsTree = (
   docs: Doc[],
