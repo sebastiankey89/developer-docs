@@ -2,11 +2,11 @@ import { FC } from 'react';
 
 import { MainNavigation } from './MainNavigation';
 
-interface Props {
+interface DocLayoutProps {
   children: React.ReactNode;
 }
 
-export const DocLayout: FC<Props> = ({ children }) => {
+export const DocLayout: FC<DocLayoutProps> = ({ children }) => {
   return (
     <>
       <MainNavigation />

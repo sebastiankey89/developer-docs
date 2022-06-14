@@ -3,12 +3,12 @@ import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks';
 
 import { allDocs } from 'contentlayer/generated';
-import { PathSegment } from 'types/PathSegment';
-import { toParams } from 'src/utils/next';
-import { DocLayout } from 'src/components/common/DocLayout';
 import { DocsHeader } from 'src/components/docs/DocsHeader';
 import { buildDocsTree } from 'src/utils/buildDocsTree';
 import { DocsNavigation } from 'src/components/docs/DocsNavigation';
+import { DocLayout } from 'src/components/common/DocLayout';
+import { PathSegment } from 'types/PathSegment';
+import { toParams } from 'src/utils/next';
 
 type Context = GetStaticPropsContext<{
   slug?: string[];
@@ -59,7 +59,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         </div>
 
         <div className="relative w-full grow">
-          <DocsHeader title={doc.title} />
+          <DocsHeader title={doc.title} tree={tree} />
           <div className="docs prose prose-slate prose-violet mx-auto mb-4 w-full max-w-3xl shrink p-4 pb-8 prose-headings:font-semibold prose-a:font-normal prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-gray-200 dark:prose-invert dark:prose-a:text-violet-400 dark:prose-hr:border-gray-800 md:mb-8 md:px-8 lg:mx-0 lg:max-w-full lg:px-16">
             {MDXContent && <MDXContent />}
           </div>

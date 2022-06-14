@@ -1,7 +1,7 @@
 import { FC } from 'react';
+
 import { BarsIcon } from './Bars';
 import { ChevronDownIcon } from './ChevronDown';
-
 import { ChevronRightIcon } from './ChevronRight';
 import { CloseIcon } from './Close';
 import { ExternalLinkIcon } from './ExternalLink';

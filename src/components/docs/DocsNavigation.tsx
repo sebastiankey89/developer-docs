@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { TreeNode } from 'types/TreeNode';
 import { Icon } from '../common/Icon';
 
-const NavLink: FC<{
+interface NavLinkProps {
   title: string;
   label?: string;
   url: string;
@@ -15,7 +15,9 @@ const NavLink: FC<{
   collapsible: boolean;
   collapsed: boolean;
   toggleCollapsed: () => void;
-}> = ({
+}
+
+const NavLink: FC<NavLinkProps> = ({
   title,
   url,
   level,
@@ -62,18 +64,20 @@ const NavLink: FC<{
   );
 };
 
-const Node: FC<{ node: TreeNode; level: number; activePath: string }> = ({
-  node,
-  level,
-  activePath,
-}) => {
+interface NodeProps {
+  node: TreeNode;
+  level: number;
+  activePath: string;
+}
+
+const Node: FC<NodeProps> = ({ node, level, activePath }) => {
   const [collapsed, setCollapsed] = useState<boolean>(node.collapsed ?? false);
   const toggleCollapsed = () => setCollapsed(!collapsed);
 
   useEffect(() => {
     if (
       activePath == node.urlPath ||
-      node.children.map((_) => _.urlPath).includes(activePath)
+      node.children.map((c) => c.urlPath).includes(activePath)
     ) {
       setCollapsed(false);
     }
@@ -98,11 +102,13 @@ const Node: FC<{ node: TreeNode; level: number; activePath: string }> = ({
   );
 };
 
-const Tree: FC<{ tree: TreeNode[]; level: number; activePath: string }> = ({
-  tree,
-  level,
-  activePath,
-}) => {
+interface TreeProps {
+  tree: TreeNode[];
+  level: number;
+  activePath: string;
+}
+
+const Tree: FC<TreeProps> = ({ tree, level, activePath }) => {
   return (
     <div
       className={classNames(
