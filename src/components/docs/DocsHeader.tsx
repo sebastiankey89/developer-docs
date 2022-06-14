@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/docs/DocsHeader.tsx
 import { useRouter } from 'next/router';
 import { FC, useState, useEffect } from 'react';
 

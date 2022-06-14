@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/utils/build-docs-tree.ts
 import { Doc } from 'contentlayer/generated';
 
 import { PathSegment } from '../../types/PathSegment';

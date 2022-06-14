@@ -1,8 +1,7 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/ColorSchemeContext.tsx
 import {
   FC,
   useEffect,
-  Dispatch,
-  SetStateAction,
   createContext,
   useState,
   useContext,

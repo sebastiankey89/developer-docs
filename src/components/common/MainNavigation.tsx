@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/MainNavigation.tsx
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { useRouter } from 'next/router';

@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/pages/docs/%5B%5B...slug%5D%5D.tsx
 import React from 'react';
 import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
 import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks';

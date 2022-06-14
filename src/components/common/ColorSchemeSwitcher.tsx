@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/ColorSchemeSwitcher.tsx
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useState, useEffect } from 'react';
 
