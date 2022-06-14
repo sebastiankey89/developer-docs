@@ -40,8 +40,6 @@ export const ColorSchemeSwitcher = () => {
     }
   };
 
-  console.log({ preferredColorScheme, colorScheme });
-
   return (
     <DropdownMenu.Root onOpenChange={fixScrollPadding}>
       <DropdownMenu.Trigger className="flex h-8 items-center rounded-md bg-transparent px-3 text-slate-400 hover:bg-gray-50 hover:text-slate-500 dark:text-slate-500 dark:hover:bg-gray-900 dark:hover:text-slate-400">
