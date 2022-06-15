@@ -5,6 +5,10 @@
     @apply h-full bg-white text-slate-500 antialiased dark:bg-gray-950 dark:text-slate-400;
   }
 
+  code {
+    @apply rounded bg-gray-200 py-0.5 px-1 text-sm dark:bg-gray-800;
+  }
+
   svg path {
     fill: currentColor;
   }
