@@ -1,4 +1,10 @@
-import type { DocumentGen } from 'contentlayer/core';
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/contentlayer/utils.ts
+import { DocumentGen } from 'contentlayer/core';
+import type * as unified from 'unified';
+import { DocHeading } from './document/Doc';
+import { bundleMDX } from 'mdx-bundler';
+import { mdxToMarkdown } from 'mdast-util-mdx';
+import { toMarkdown } from 'mdast-util-to-markdown';
 
 export const contentDirPath = 'content';
 
@@ -20,3 +26,57 @@ export const pathSegmentsFromFilePath = (doc: DocumentGen) => {
       })
   );
 };
+
+export const headingsFromRawMdx = async (doc: DocumentGen) => {
+  const headings: DocHeading[] = [];
+
+  await bundleMDX({
+    source: doc.body.raw,
+    mdxOptions: (opts) => {
+      opts.remarkPlugins = [...(opts.remarkPlugins ?? []), tocPlugin(headings)];
+      return opts;
+    },
+  });
+
+  return [{ level: 1, title: doc.title }, ...headings];
+};
+
+const tocPlugin =
+  (headings: DocHeading[]): unified.Plugin =>
+  () => {
+    return (node: any) => {
+      for (const element of node.children.filter(
+        (c: any) => c.type === 'heading' || c.name === 'OptionsTable',
+      )) {
+        if (element.type === 'heading') {
+          const title = toMarkdown(
+            { type: 'paragraph', children: element.children },
+            { extensions: [mdxToMarkdown()] },
+          )
+            .trim()
+            .replace(/<.*$/g, '')
+            .replace(/\\/g, '')
+            .trim();
+          headings.push({ level: element.depth, title });
+        } else if (element.name === 'OptionsTable') {
+          element.children
+            .filter((c: any) => c.name === 'OptionTitle')
+            .forEach((optionTitle: any) => {
+              optionTitle.children
+                .filter((c: any) => c.type === 'heading')
+                .forEach((heading: any) => {
+                  const title = toMarkdown(
+                    { type: 'paragraph', children: heading.children },
+                    { extensions: [mdxToMarkdown()] },
+                  )
+                    .trim()
+                    .replace(/<.*$/g, '')
+                    .replace(/\\/g, '')
+                    .trim();
+                  headings.push({ level: heading.depth, title });
+                });
+            });
+        }
+      }
+    };
+  };

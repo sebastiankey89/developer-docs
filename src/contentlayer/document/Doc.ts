@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/contentlayer/document/Doc.ts
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
 import highlight from 'rehype-highlight';
 
@@ -5,7 +6,10 @@ import {
   urlFromFilePath,
   contentDirPath,
   pathSegmentsFromFilePath,
+  headingsFromRawMdx,
 } from '../../contentlayer/utils';
+
+export type DocHeading = { level: 1 | 2 | 3; title: string };
 
 export const Doc = defineDocumentType(() => ({
   name: 'Doc',
@@ -51,6 +55,10 @@ export const Doc = defineDocumentType(() => ({
     pathSegments: {
       type: 'json',
       resolve: pathSegmentsFromFilePath,
+    },
+    headings: {
+      type: 'json',
+      resolve: headingsFromRawMdx,
     },
   },
 }));

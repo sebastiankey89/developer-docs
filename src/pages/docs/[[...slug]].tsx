@@ -10,8 +10,10 @@ import { DocsNavigation } from '../../components/docs/DocsNavigation';
 import { DocLayout } from '../../components/docs/DocLayout';
 import { PathSegment } from '../../../types/PathSegment';
 import { toParams } from '../../utils/next';
+import { PageNavigation } from '../../components/common/PageNavigation';
+import { H2, H3, H4 } from '../../components/common/Heading';
 
-type Context = GetStaticPropsContext<{
+type Ctx = GetStaticPropsContext<{
   slug?: string[];
 }>;
 
@@ -26,7 +28,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = async (ctx: Context) => {
+export const getStaticProps = async (ctx: Ctx) => {
   const { params } = ctx;
   const pagePath = params?.slug?.join('/') ?? '';
 
@@ -38,6 +40,12 @@ export const getStaticProps = async (ctx: Context) => {
   const tree = buildDocsTree(allDocs);
 
   return { props: { doc, tree } };
+};
+
+const mdxComponents = {
+  h2: H2,
+  h3: H3,
+  h4: H4,
 };
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -62,14 +70,18 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         <div className="relative w-full grow">
           <DocsHeader title={doc.title} tree={tree} />
           <div className="docs prose prose-slate prose-violet mx-auto mb-4 w-full max-w-3xl shrink p-4 pb-8 prose-headings:font-semibold prose-a:font-normal prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-gray-200 dark:prose-invert dark:prose-a:text-violet-400 dark:prose-hr:border-gray-800 md:mb-8 md:px-8 lg:mx-0 lg:max-w-full lg:px-16">
-            {MDXContent && <MDXContent />}
+            {MDXContent && <MDXContent components={mdxComponents} />}
           </div>
         </div>
 
         <div
           style={{ maxHeight: 'calc(100vh - 128px)' }}
           className="sticky top-32 hidden w-80 shrink-0 overflow-y-scroll p-8 pr-16 1.5xl:block"
-        ></div>
+        >
+          <PageNavigation headings={doc.headings} />
+          <div className="absolute inset-x-0 top-0 h-8 bg-gradient-to-t from-white/0 to-white/100 dark:from-gray-950/0 dark:to-gray-950/100" />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-white/0 to-white/100 dark:from-gray-950/0 dark:to-gray-950/100" />
+        </div>
       </div>
     </DocLayout>
   );
