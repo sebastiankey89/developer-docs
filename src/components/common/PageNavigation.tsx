@@ -1,3 +1,4 @@
+// Modified from: // Modified from: https://github.com/contentlayerdev/website/blob/main/src/contentlayer/document/Doc.ts
 import { FC, useState, useEffect } from 'react';
 import { type DocHeading } from '../../contentlayer/document/Doc';
 import { getNodeText, sluggifyTitle } from '../../utils/sluggify';
