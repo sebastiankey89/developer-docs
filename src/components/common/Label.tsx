@@ -1,12 +1,12 @@
 // Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/Label.tsx
 import { FC } from 'react';
 
-interface CardProps {
+interface LabelProps {
   text: string;
   theme?: 'default' | 'primary';
 }
 
-export const Label: FC<CardProps> = ({ text, theme = 'default' }) => {
+export const Label: FC<LabelProps> = ({ text, theme = 'default' }) => {
   return (
     <span
       className={`inline-block whitespace-nowrap rounded px-1.5 align-middle font-medium leading-4 tracking-wide [font-size:10px] ${
