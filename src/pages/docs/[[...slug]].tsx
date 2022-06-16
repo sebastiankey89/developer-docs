@@ -1,10 +1,12 @@
 // Modified from: https://github.com/contentlayerdev/website/blob/main/src/pages/docs/%5B%5B...slug%5D%5D.tsx
 import React from 'react';
 import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
 import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks';
 import { allDocs } from 'contentlayer/generated';
 
 import { DocsHeader } from '../../components/docs/DocsHeader';
+import { Video } from '../../components/common/Video';
 import { buildDocsTree } from '../../utils/buildDocsTree';
 import { DocsNavigation } from '../../components/docs/DocsNavigation';
 import { DocLayout } from '../../components/docs/DocLayout';
@@ -12,6 +14,9 @@ import { PathSegment } from '../../../types/PathSegment';
 import { toParams } from '../../utils/next';
 import { PageNavigation } from '../../components/common/PageNavigation';
 import { H2, H3, H4 } from '../../components/common/Heading';
+import { Card } from '../../components/common/Card';
+import { Link } from '../../components/common/Link';
+import { Label } from '../../components/common/Label';
 
 type Ctx = GetStaticPropsContext<{
   slug?: string[];
@@ -38,18 +43,26 @@ export const getStaticProps = async (ctx: Ctx) => {
       pagePath,
   )!;
   const tree = buildDocsTree(allDocs);
+  const childrenTree = buildDocsTree(
+    allDocs,
+    doc.pathSegments.map((pS: PathSegment) => pS.pathName),
+  );
 
-  return { props: { doc, tree } };
+  return { props: { doc, tree, childrenTree } };
 };
 
 const mdxComponents = {
   h2: H2,
   h3: H3,
   h4: H4,
+  Video,
+  Link,
+  a: Link,
 };
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { doc, tree } = props;
+  const { doc, tree, childrenTree } = props;
+  const router = useRouter();
   useLiveReload();
   const MDXContent = useMDXComponent(doc.body.code || '');
 
@@ -71,6 +84,28 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
           <DocsHeader title={doc.title} tree={tree} />
           <div className="docs prose prose-slate prose-violet mx-auto mb-4 w-full max-w-3xl shrink p-4 pb-8 prose-headings:font-semibold prose-a:font-normal prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-gray-200 dark:prose-invert dark:prose-a:text-violet-400 dark:prose-hr:border-gray-800 md:mb-8 md:px-8 lg:mx-0 lg:max-w-full lg:px-16">
             {MDXContent && <MDXContent components={mdxComponents} />}
+            {doc.show_child_cards && (
+              <>
+                <hr />
+                <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+                  {childrenTree.map((card, index) => (
+                    <div
+                      key={index}
+                      onClick={() => router.push(card.urlPath)}
+                      className="cursor-pointer"
+                    >
+                      <Card className="h-full p-6 py-4 hover:border-violet-100 hover:bg-violet-50 dark:hover:border-violet-900/50 dark:hover:bg-violet-900/20">
+                        <h3 className="mt-0 no-underline">{card.title}</h3>
+                        {card.label && <Label text={card.label} />}
+                        <div className="text-sm text-slate-500 dark:text-slate-400">
+                          <p>{card.excerpt}</p>
+                        </div>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </div>
 
