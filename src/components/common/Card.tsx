@@ -1,4 +1,4 @@
-// Modified from: // Modified from: https://github.com/contentlayerdev/website/blob/main/src/contentlayer/document/Doc.ts
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/Card.tsx
 import { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 
