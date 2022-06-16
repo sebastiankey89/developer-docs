@@ -1,3 +1,4 @@
+// Modified from: // Modified from: https://github.com/contentlayerdev/website/blob/main/src/contentlayer/document/Doc.ts
 import { FC, ReactNode } from 'react';
 import classNames from 'classnames';
 

@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/Link.tsx
 import { FC, ReactNode } from 'react';
 import NextLink from 'next/link';
 import { Icon } from './Icon';
