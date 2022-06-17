@@ -1,10 +1,13 @@
 // Modified from: https://github.com/contentlayerdev/website/blob/main/src/contentlayer/utils.ts
 import { DocumentGen } from 'contentlayer/core';
 import type * as unified from 'unified';
-import { DocHeading } from './document/Doc';
 import { bundleMDX } from 'mdx-bundler';
 import { mdxToMarkdown } from 'mdast-util-mdx';
 import { toMarkdown } from 'mdast-util-to-markdown';
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
+
+import { DocHeading } from './document/Doc';
 
 export const contentDirPath = 'content';
 
@@ -39,6 +42,13 @@ export const headingsFromRawMdx = async (doc: DocumentGen) => {
   });
 
   return [{ level: 1, title: doc.title }, ...headings];
+};
+
+export const getLastEditedDate = async (doc: DocumentGen): Promise<Date> => {
+  const stats = await fs.stat(
+    path.join(contentDirPath, doc._raw.sourceFilePath),
+  );
+  return stats.mtime;
 };
 
 const tocPlugin =

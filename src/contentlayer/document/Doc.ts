@@ -7,7 +7,8 @@ import {
   contentDirPath,
   pathSegmentsFromFilePath,
   headingsFromRawMdx,
-} from '../../contentlayer/utils';
+  getLastEditedDate,
+} from '../utils';
 
 export type DocHeading = { level: 1 | 2 | 3; title: string };
 
@@ -60,6 +61,7 @@ export const Doc = defineDocumentType(() => ({
       type: 'json',
       resolve: headingsFromRawMdx,
     },
+    last_edited: { type: 'date', resolve: getLastEditedDate },
   },
 }));
 

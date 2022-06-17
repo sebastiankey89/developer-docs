@@ -17,6 +17,7 @@ import { H2, H3, H4 } from '../../components/common/Heading';
 import { Card } from '../../components/common/Card';
 import { Link } from '../../components/common/Link';
 import { Label } from '../../components/common/Label';
+import { DocsFooter } from 'src/components/docs/DocsFooter';
 
 type Ctx = GetStaticPropsContext<{
   slug?: string[];
@@ -106,6 +107,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
                 </div>
               </>
             )}
+            <DocsFooter doc={doc} />
           </div>
         </div>
 
