@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/Footer.tsx
 import { FC } from 'react';
 import Link from 'next/link';
 
