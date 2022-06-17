@@ -44,7 +44,7 @@ export const PageNavigation: FC<{ headings: DocHeading[] }> = ({
               style={{ marginLeft: (level - 2) * 16 }}
               className={`flex ${
                 sluggifyTitle(getNodeText(title)) == activeHeading
-                  ? 'text-violet-600 dark:text-violet-400'
+                  ? 'text-sky-600 dark:text-sky-400'
                   : 'hover:text-slate-600 dark:hover:text-slate-300'
               }`}
             >

@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         gray: {
           850: '#18202F',
-          950: '#0b0f1a',
+          950: '#000a14',
         },
       },
       screens: {

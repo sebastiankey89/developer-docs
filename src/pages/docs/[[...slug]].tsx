@@ -83,7 +83,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
         <div className="relative w-full grow">
           <DocsHeader title={doc.title} tree={tree} />
-          <div className="docs prose prose-slate prose-violet mx-auto mb-4 w-full max-w-3xl shrink p-4 pb-8 prose-headings:font-semibold prose-a:font-normal prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-gray-200 dark:prose-invert dark:prose-a:text-violet-400 dark:prose-hr:border-gray-800 md:mb-8 md:px-8 lg:mx-0 lg:max-w-full lg:px-16">
+          <div className="docs prose prose-slate prose-sky mx-auto mb-4 w-full max-w-3xl shrink p-4 pb-8 prose-headings:font-semibold prose-a:font-normal prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-gray-200 dark:prose-invert dark:prose-a:text-sky-400 dark:prose-hr:border-gray-800 md:mb-8 md:px-8 lg:mx-0 lg:max-w-full lg:px-16">
             {MDXContent && <MDXContent components={mdxComponents} />}
             {doc.show_child_cards && (
               <>
@@ -95,7 +95,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       onClick={() => router.push(card.urlPath)}
                       className="cursor-pointer"
                     >
-                      <Card className="h-full p-6 py-4 hover:border-violet-100 hover:bg-violet-50 dark:hover:border-violet-900/50 dark:hover:bg-violet-900/20">
+                      <Card className="h-full p-6 py-4 hover:border-sky-100 hover:bg-sky-100/50 dark:hover:border-sky-900/50 dark:hover:bg-sky-900/20">
                         <h3 className="mt-0 no-underline">{card.title}</h3>
                         {card.label && <Label text={card.label} />}
                         <div className="text-sm text-slate-500 dark:text-slate-400">
