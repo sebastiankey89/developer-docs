@@ -1,1 +1,2 @@
-export const isExternalUrl = (link: string): boolean => !link.startsWith('/');
+export const isExternalUrl = (link: string): boolean =>
+  !link.startsWith('/') || link.startsWith('#');

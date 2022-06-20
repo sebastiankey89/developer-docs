@@ -1,7 +1,9 @@
 // Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/Link.tsx
 import { FC, ReactNode } from 'react';
 import NextLink from 'next/link';
+
 import { Icon } from './Icon';
+import * as helpers from '../../utils/helpers';
 
 interface LinkProps {
   href: string;
@@ -9,8 +11,7 @@ interface LinkProps {
 }
 
 export const Link: FC<LinkProps> = ({ href, children }) => {
-  const isExternalUrl = !(href.startsWith('/') || href.startsWith('#'));
-
+  const isExternalUrl = helpers.isExternalUrl(href);
   return (
     <NextLink href={href}>
       <a

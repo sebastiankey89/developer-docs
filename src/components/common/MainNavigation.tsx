@@ -7,6 +7,7 @@ import { Icon, IconName } from './Icon';
 import { Logo } from './Logo';
 import { isExternalUrl } from '../../utils/helpers';
 import { ColorSchemeSwitcher } from './ColorSchemeSwitcher';
+import config from '../../config';
 
 interface NavLinksProps {
   label: string;
@@ -27,7 +28,7 @@ const iconLinks: Array<IconLinkProps> = [
   {
     label: 'Github',
     icon: 'github',
-    url: 'https://github.com/mirainc/docs-site',
+    url: config.gitHubUrl,
   },
 ];
 
