@@ -9,20 +9,6 @@ import config from '../../config';
 import * as routes from '../../routes';
 
 const content = {
-  note: (
-    <p className="mt-2">
-      Made with 💜 by{' '}
-      <Link href={config.raydiantUrl}>
-        <a
-          className="hover:text-slate-700 dark:hover:text-slate-300"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Raydiant
-        </a>
-      </Link>
-    </p>
-  ),
   menus: [
     {
       // TODO: Populate
@@ -58,9 +44,6 @@ export const Footer: FC = () => {
               <span>Raydiant</span>
             </a>
           </Link>
-          <div className="mt-4 text-sm text-slate-500 dark:text-slate-400">
-            {content.note}
-          </div>
         </div>
         <div className="space-y-8 md:flex md:space-y-0 md:space-x-16">
           {content.menus.map(({ title, elements }, index) => (
