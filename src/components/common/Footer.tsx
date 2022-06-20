@@ -11,23 +11,28 @@ import * as routes from '../../routes';
 const content = {
   menus: [
     {
-      // TODO: Populate
       title: 'Docs',
-      elements: [{ label: 'Get Started', url: routes.getStarted() }],
-    },
-    {
-      // TODO: Populate
-      title: 'Examples',
-      elements: [],
-    },
-    {
-      title: 'Community',
       elements: [
-        { label: 'Twitter', url: config.twitterUrl },
-        {
-          label: 'GitHub',
-          url: config.gitHubUrl,
-        },
+        { label: 'Get Started', url: routes.getStarted() },
+        { label: 'Inputs  ', url: routes.inputs() },
+        { label: 'On-Brand Menu API  ', url: routes.onBrandMenuApi() },
+        { label: 'Marketplace  ', url: routes.marketplace() },
+        { label: 'FAQ  ', url: routes.faq() },
+      ],
+    },
+    {
+      title: 'Sample Apps',
+      elements: [
+        { label: 'Simple Weather  ', url: routes.simpleWeather() },
+        { label: 'Whole Foods Menu', url: routes.wholeFoodsMenu() },
+      ],
+    },
+    {
+      title: 'Products',
+      elements: [
+        { label: 'Raydiant Dashboard', url: config.raydiantDashUrl },
+        { label: 'Developer Portal', url: config.developerPortalUrl },
+        { label: 'Website', url: config.raydiantUrl },
       ],
     },
   ],
