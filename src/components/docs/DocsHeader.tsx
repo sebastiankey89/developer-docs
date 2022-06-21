@@ -1,17 +1,24 @@
 // Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/docs/DocsHeader.tsx
 import { useRouter } from 'next/router';
-import { FC, useState, useEffect } from 'react';
+import Link from 'next/link';
+import { FC, useState, useEffect, Fragment } from 'react';
 
-import { TreeNode } from '../../../types/TreeNode';
-import { Icon } from '../common/Icon';
 import { DocsNavigation } from './DocsNavigation';
+import { Icon } from '../common/Icon';
+import { TreeNode } from '../../../types/TreeNode';
+import { Breadcrumb } from '../../utils/buildBreadcrumbs';
 
 interface DocsHeaderProps {
   tree: TreeNode[];
   title: string;
+  breadcrumbs: Breadcrumb[];
 }
 
-export const DocsHeader: FC<DocsHeaderProps> = ({ title, tree }) => {
+export const DocsHeader: FC<DocsHeaderProps> = ({
+  title,
+  tree,
+  breadcrumbs,
+}) => {
   const { asPath } = useRouter();
   const [open, setOpen] = useState<boolean>(false);
   const [top, setTop] = useState<boolean>(true);
@@ -33,6 +40,24 @@ export const DocsHeader: FC<DocsHeaderProps> = ({ title, tree }) => {
     <>
       <header className="relative w-full">
         <div className="mx-auto w-full max-w-3xl space-y-2 px-4 py-8 md:px-8 lg:max-w-full lg:px-16">
+          <ul className="-mx-1 flex flex-wrap items-center text-sm">
+            {breadcrumbs.map(({ path, title }, index) => (
+              <Fragment key={index}>
+                {index < breadcrumbs.length - 1 && (
+                  <li className="mx-1 flex items-center space-x-2">
+                    <Link href={path}>
+                      <a className="inline whitespace-nowrap hover:text-slate-600 dark:hover:text-slate-300">
+                        {title}
+                      </a>
+                    </Link>
+                    <span className="inline-block w-1.5 text-slate-400 dark:text-slate-500">
+                      <Icon name="chevron-right" />
+                    </span>
+                  </li>
+                )}
+              </Fragment>
+            ))}
+          </ul>
           <h1 className="sr-only text-2xl font-semibold text-slate-800 dark:text-slate-200 md:text-3xl lg:not-sr-only lg:text-4xl">
             {title}
           </h1>

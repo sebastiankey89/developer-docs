@@ -8,6 +8,7 @@ import { allDocs } from 'contentlayer/generated';
 import { DocsHeader } from '../../components/docs/DocsHeader';
 import { Video } from '../../components/common/Video';
 import { buildDocsTree } from '../../utils/buildDocsTree';
+import { buildBreadcrumbs } from '../../utils/buildBreadcrumbs';
 import { DocsNavigation } from '../../components/docs/DocsNavigation';
 import { DocLayout } from '../../components/docs/DocLayout';
 import { PathSegment } from '../../../types/PathSegment';
@@ -49,8 +50,9 @@ export const getStaticProps = async (ctx: Ctx) => {
     allDocs,
     doc.pathSegments.map((pS: PathSegment) => pS.pathName),
   );
+  const breadcrumbs = buildBreadcrumbs(allDocs, params?.slug);
 
-  return { props: { doc, tree, childrenTree } };
+  return { props: { doc, tree, childrenTree, breadcrumbs } };
 };
 
 const mdxComponents = {
@@ -65,7 +67,7 @@ const mdxComponents = {
 };
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { doc, tree, childrenTree } = props;
+  const { doc, tree, childrenTree, breadcrumbs } = props;
   const router = useRouter();
   useLiveReload();
   const MDXContent = useMDXComponent(doc.body.code || '');
@@ -85,7 +87,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         </div>
 
         <div className="relative w-full grow">
-          <DocsHeader title={doc.title} tree={tree} />
+          <DocsHeader title={doc.title} tree={tree} breadcrumbs={breadcrumbs} />
           <div className="docs prose prose-slate prose-sky mx-auto mb-4 w-full max-w-3xl shrink p-4 pb-8 prose-headings:font-semibold prose-a:font-normal prose-code:font-normal prose-code:before:content-none prose-code:after:content-none prose-hr:border-gray-200 dark:prose-invert dark:prose-a:text-sky-400 dark:prose-hr:border-gray-800 md:mb-8 md:px-8 lg:mx-0 lg:max-w-full lg:px-16">
             {MDXContent && <MDXContent components={mdxComponents} />}
             {doc.show_child_cards && (
