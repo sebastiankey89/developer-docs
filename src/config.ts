@@ -1,5 +1,6 @@
 const config = {
   raydiantDashUrl: 'https://dash.raydiant.com',
+  developerPortalUrl: '/',
   raydiantUrl: 'https://www.raydiant.com/',
   twitterUrl: 'https://twitter.com/tryraydiant',
   gitHubUrl: 'https://github.com/mirainc/docs-site',
