@@ -5,6 +5,7 @@ import { ChevronDownIcon } from './ChevronDown';
 import { ChevronRightIcon } from './ChevronRight';
 import { CloseIcon } from './Close';
 import { ExternalLinkIcon } from './ExternalLink';
+import { ExclamationIcon } from './Exclamation';
 import { GearIcon } from './Gear';
 import { GitHubIcon } from './GitHub';
 import { MoonIcon } from './Moon';
@@ -19,6 +20,7 @@ export type IconName =
   | 'github'
   | 'sun'
   | 'moon'
+  | 'exclamation'
   | 'gear';
 
 const iconMap = {
@@ -31,6 +33,7 @@ const iconMap = {
   sun: SunIcon,
   gear: GearIcon,
   moon: MoonIcon,
+  exclamation: ExclamationIcon,
 };
 
 export const Icon: FC<{ name: IconName }> = ({ name }) => {
