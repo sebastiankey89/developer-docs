@@ -15,6 +15,7 @@ interface NavLinksProps {
 }
 
 const navLinks: Array<NavLinksProps> = [
+  { label: 'Developer Portal', url: '/' },
   { label: 'Documentation', url: '/docs' },
 ];
 
@@ -48,7 +49,7 @@ const NavLink: FC<NavLinkProps> = ({ label, hideLabel = false, icon, url }) => {
       <a
         className={`group flex h-8 items-center rounded-md bg-transparent px-3 text-sm font-medium leading-none ${
           active
-            ? 'bg-violet-50 text-violet-900 dark:bg-violet-500/20 dark:text-violet-50'
+            ? 'bg-sky-100/50 text-sky-900 dark:bg-sky-500/20 dark:text-sky-100'
             : 'text-slate-600 hover:bg-gray-50 hover:text-slate-700 dark:text-slate-300 dark:hover:bg-gray-900 dark:hover:text-slate-200'
         }`}
         target={isExternalUrl(url) ? '_blank' : undefined}
@@ -75,7 +76,6 @@ export const MainNavigation = () => {
           <Link href="/docs">
             <a className="flex items-center space-x-2.5 font-bold text-slate-800 no-underline dark:text-white">
               <Logo />
-              <span className="-mt-0.5">Raydiant Developer Docs</span>
             </a>
           </Link>
         </div>

@@ -46,7 +46,6 @@ export const Footer: FC = () => {
           <Link href="/">
             <a className="flex items-center space-x-2.5 font-bold text-slate-800 no-underline dark:text-white">
               <Logo />
-              <span>Raydiant</span>
             </a>
           </Link>
         </div>
