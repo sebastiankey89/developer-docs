@@ -8,6 +8,7 @@ import { Logo } from './Logo';
 import { isExternalUrl } from '../../utils/helpers';
 import { ColorSchemeSwitcher } from './ColorSchemeSwitcher';
 import config from '../../config';
+import * as routes from '../../routes';
 
 interface NavLinksProps {
   label: string;
@@ -16,7 +17,7 @@ interface NavLinksProps {
 
 const navLinks: Array<NavLinksProps> = [
   { label: 'Developer Portal', url: '/' },
-  { label: 'Documentation', url: '/docs' },
+  { label: 'Documentation', url: routes.getStarted() },
 ];
 
 interface IconLinkProps {
@@ -73,7 +74,7 @@ export const MainNavigation = () => {
     <header className="fixed z-50 w-full border-b border-gray-200 bg-white bg-opacity-90 backdrop-blur backdrop-filter dark:border-gray-800 dark:bg-gray-950">
       <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-4 md:px-8 lg:px-16">
         <div className="flex items-center space-x-2.5">
-          <Link href="/docs">
+          <Link href={routes.getStarted()}>
             <a className="flex items-center space-x-2.5 font-bold text-logo-bg no-underline dark:text-logo-bg-dark">
               <Logo />
             </a>

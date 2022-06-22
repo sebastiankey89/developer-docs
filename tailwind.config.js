@@ -9,7 +9,7 @@ module.exports = {
           950: '#000a14',
         },
         'logo-bg': '#009bd2',
-        'logo-bg-dark': '#0fbfff',
+        'logo-bg-dark': '#29c6ff',
       },
       screens: {
         '1.5xl': '1440px',
