@@ -52,6 +52,8 @@ export const getStaticProps = async (ctx: Ctx) => {
   );
   const breadcrumbs = buildBreadcrumbs(allDocs, params?.slug);
 
+  console.log(breadcrumbs);
+
   return { props: { doc, tree, childrenTree, breadcrumbs } };
 };
 

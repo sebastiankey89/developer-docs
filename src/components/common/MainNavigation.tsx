@@ -74,7 +74,7 @@ export const MainNavigation = () => {
       <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center justify-between px-4 md:px-8 lg:px-16">
         <div className="flex items-center space-x-2.5">
           <Link href="/docs">
-            <a className="flex items-center space-x-2.5 font-bold text-slate-800 no-underline dark:text-white">
+            <a className="flex items-center space-x-2.5 font-bold text-logo-bg no-underline dark:text-logo-bg-dark">
               <Logo />
             </a>
           </Link>
