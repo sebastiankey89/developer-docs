@@ -1,4 +1,4 @@
-// Modified from: https://github.com/contentlayerdev/website/blob/main/src/utils/build-docs-tree.ts
+// modified from: https://github.com/contentlayerdev/website/blob/main/src/pages/docs/%5B%5B...slug%5D%5D.tsx
 import { Doc } from 'contentlayer/generated';
 
 import { PathSegment } from '../../types/PathSegment';
@@ -17,11 +17,11 @@ export const buildBreadcrumbs = (allDocs: Doc[], slug?: string[]) => {
     path += path == '' ? slug : '/' + slug;
     const navTitle = allDocs.find(
       (d) =>
-        d.pathSegments.map((_: PathSegment) => _.pathName).join('/') === path,
+        d.pathSegments.map((pS: PathSegment) => pS.pathName).join('/') === path,
     )?.nav_title;
     const title = allDocs.find(
       (d) =>
-        d.pathSegments.map((_: PathSegment) => _.pathName).join('/') === path,
+        d.pathSegments.map((pS: PathSegment) => pS.pathName).join('/') === path,
     )?.title;
     breadcrumbs.push({
       path: '/docs/' + path,
