@@ -3,4 +3,32 @@ title: Offline Support
 excerpt: What you need to know about the on-device cache.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+While many buildings you walk into today have an internet connection, the reality is that many [brick and mortar](https://en.wikipedia.org/wiki/Brick_and_mortar) businesses do not have a reliable one.
+
+Raydiant devices come with a built-in cache to make your apps resilient to network disruptions and reduce bandwidth consumption.
+
+If the device is unable to connect to the internet, it will automatically serve cached content while the device is offline.
+
+## On-Device Cache
+
+All requests made by your app will automatically be cached on the device, with the exception of requests with a `Cache-Control` header value of `max-age=0`.
+
+To enable the on-device cache, make sure to return a `Cache-Control` header value of at least `max-age=1` on all your responses.
+
+## Reducing Bandwidth
+
+Some customers run their devices on cellular networks with bandwidth constraints.
+
+To minimize the amount of bandwidth used, the on-device cache will automatically cache content depending on the `Content-Type` of the request.
+
+## Content Type TTLs
+
+Below is a table of the TTL values of the on-device cache by content type.
+
+Content types that never expire such as images and videos will need to be cache busted manually if they are dynamic.
+
+[TODO: Content type table]
+
+## Next Steps
+
+- [How to test offline support](/docs/get-started/development)
