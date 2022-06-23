@@ -17,6 +17,7 @@ import { PageNavigation } from '../../components/common/PageNavigation';
 import { H2, H3, H4 } from '../../components/common/Heading';
 import { Card } from '../../components/common/Card';
 import { Link } from '../../components/common/Link';
+import { ChevronLink } from '../../components/common/ChevronLink';
 import {
   OptionsTable,
   OptionTitle,
@@ -67,6 +68,7 @@ const mdxComponents = {
   Video,
   Link,
   a: Link,
+  ChevronLink,
   aside: Callout,
   Callout,
   OptionsTable,

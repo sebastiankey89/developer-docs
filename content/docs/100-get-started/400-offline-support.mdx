@@ -3,7 +3,7 @@ title: Offline Support
 excerpt: What you need to know about the on-device cache.
 ---
 
-While many buildings you walk into today have an internet connection, the reality is that many [brick and mortar](https://en.wikipedia.org/wiki/Brick_and_mortar) businesses do not have a reliable one.
+While many buildings you walk into today have an internet connection, the reality is that many [brick and mortar businesses](https://en.wikipedia.org/wiki/Brick_and_mortar) do not have a reliable one.
 
 Raydiant devices come with a built-in cache to make your apps resilient to network disruptions and reduce bandwidth consumption.
 
@@ -27,7 +27,92 @@ Below is a table of the TTL values of the on-device cache by content type.
 
 Content types that never expire such as images and videos will need to be cache busted manually if they are dynamic.
 
-[TODO: Content type table]
+<OptionsTable>
+  <OptionTitle>
+    ### `application/json`
+  </OptionTitle>
+  <OptionDescription>
+    Cached for 5 seconds
+  </OptionDescription>
+  <OptionTitle>
+    ### `application/pdf`
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `application/octet-stream`
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `binary/octet-stream`
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `image/jpeg`
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `image/gif`  
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `image/png`
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `image/bmp`  
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `image/webp`  
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `video/webm`
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `video/ogg`
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `video/mp4`   
+  </OptionTitle>
+  <OptionDescription>
+    Cached forever
+  </OptionDescription>
+  <OptionTitle>
+    ### `application/binary`  
+  </OptionTitle>
+  <OptionDescription>
+    Never cached
+  </OptionDescription>
+  <OptionTitle>
+    ### `~*mpegurl`
+  </OptionTitle>
+  <OptionDescription>
+    Never cached
+  </OptionDescription>
+</OptionsTable>
 
 ## Next Steps
 
