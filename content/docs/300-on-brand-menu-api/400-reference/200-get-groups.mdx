@@ -5,7 +5,7 @@ excerpt: Query menu groups by menu ID, group ID or tag.
 
 Returns the groups for the authenticated API Key. Query menu groups by menu ID, group ID or tag.
 
-## **Request**
+## Request
 
 Set the `X-API-Key: [API Key]` header.
 
@@ -13,37 +13,37 @@ Set the `X-API-Key: [API Key]` header.
 
 <OptionsTable>
   <OptionTitle>
-    ### `tags`
+    `tags`
   </OptionTitle>
   <OptionDescription>
     Filter for groups for the provided tag(s), multiple tags are “anded” together
   </OptionDescription>
   <OptionTitle>
-    ### `groups`
+    `groups`
   </OptionTitle>
   <OptionDescription>
     Filter for groups for the provided group id(s), useful for paginating child groups
   </OptionDescription>
    <OptionTitle>
-    ### `menus`
+    `menus`
   </OptionTitle>
   <OptionDescription>
     Filter for groups for the provided menu id(s), useful for multi-location restaurants
   </OptionDescription>
    <OptionTitle>
-    ### `page`
+    `page`
   </OptionTitle>
   <OptionDescription>
     The page number to return more results
   </OptionDescription>
    <OptionTitle>
-    ### `pageSize`
+    `pageSize`
   </OptionTitle>
   <OptionDescription>
     The number of groups to return per page (max: 50, default 10)
   </OptionDescription>
    <OptionTitle>
-    ### `depth`
+    `depth`
   </OptionTitle>
   <OptionDescription>
     How many levels of child groups and item modifiers to traverse (max: 4, default: 1)
