@@ -11,6 +11,8 @@ import { buildDocsTree } from '../../utils/buildDocsTree';
 import { buildBreadcrumbs } from '../../utils/buildBreadcrumbs';
 import { DocsNavigation } from '../../components/docs/DocsNavigation';
 import { DocLayout } from '../../components/docs/DocLayout';
+import { Icon } from '../../components/common/Icon';
+import { RaydiantIcon } from '../../components/common/RaydiantIcon';
 import { PathSegment } from '../../../types/PathSegment';
 import { toParams } from '../../utils/next';
 import { PageNavigation } from '../../components/common/PageNavigation';
@@ -72,6 +74,8 @@ const mdxComponents = {
   OptionsTable,
   OptionTitle,
   OptionDescription,
+  Icon,
+  RaydiantIcon,
 };
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {

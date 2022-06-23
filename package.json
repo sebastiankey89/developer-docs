@@ -10,6 +10,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "@radix-ui/react-dropdown-menu": "^0.1.6",
     "@tailwindcss/typography": "^0.5.2",
     "classnames": "^2.3.1",

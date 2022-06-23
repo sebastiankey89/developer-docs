@@ -13,8 +13,6 @@ export const buildBreadcrumbs = (allDocs: Doc[], slug?: string[]) => {
   let slugs = slug ? [...slug] : [];
   let path = '';
 
-  console.log(slugs);
-
   const breadcrumbs = slugs.map((slug) => {
     path += path == '' ? slug : '/' + slug;
     const navTitle = allDocs.find(
