@@ -10,10 +10,12 @@ export interface Breadcrumb {
 }
 
 export const buildBreadcrumbs = (allDocs: Doc[], slug?: string[]) => {
-  let slugs = slug ? ['', ...slug] : [];
+  let slugs = slug ? [...slug] : [];
   let path = '';
-  let breadcrumbs: Breadcrumb[] = [];
-  for (const slug of slugs) {
+
+  console.log(slugs);
+
+  const breadcrumbs = slugs.map((slug) => {
     path += path == '' ? slug : '/' + slug;
     const navTitle = allDocs.find(
       (d) =>
@@ -23,11 +25,12 @@ export const buildBreadcrumbs = (allDocs: Doc[], slug?: string[]) => {
       (d) =>
         d.pathSegments.map((pS: PathSegment) => pS.pathName).join('/') === path,
     )?.title;
-    breadcrumbs.push({
+    return {
       path: '/docs/' + path,
       slug,
       title: (navTitle || title) as string,
-    });
-  }
+    };
+  });
+
   return breadcrumbs;
 };
