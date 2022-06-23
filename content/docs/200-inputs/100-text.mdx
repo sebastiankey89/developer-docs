@@ -3,4 +3,35 @@ title: Text
 excerpt: Set headings, paragraphs and call to actions.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Add a _text_ input to allow users to customize headings, call to actions or use it as a search parameter for external APIs.
+
+<Callout>
+  **Known issue:** Special characters are not encoded when passed in through the
+  URL template.
+</Callout>
+
+## Multiline
+
+Enable the the _text_ input’s multiline option to allow users to type multiple lines of text.
+
+<Callout>
+  **Known issue:** Newline characters are not passed in through the URL
+  template, preventing you from easily rendering multiple lines.
+</Callout>
+
+## Validation
+
+The _text_ input supports the following validation options:
+
+- **Required:** Prevent your app from rendering until an input value is provided.
+- **Max Length:** Prevent users from typing too many characters.
+
+## Appearance
+
+Add helper text to provide helpful context or link to a support article for additional instructions.
+
+## Next Steps
+
+- [See how the Text input is used in the Simple Weather sample app](/docs/get-started/sample-apps/simple-weather)
+- [Check out the Number input](/docs/inputs/number)
+- [Browse the available input types](/docs/inputs)
