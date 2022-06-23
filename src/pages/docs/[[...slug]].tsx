@@ -17,6 +17,11 @@ import { PageNavigation } from '../../components/common/PageNavigation';
 import { H2, H3, H4 } from '../../components/common/Heading';
 import { Card } from '../../components/common/Card';
 import { Link } from '../../components/common/Link';
+import {
+  OptionsTable,
+  OptionTitle,
+  OptionDescription,
+} from '../../components/docs/OptionsTable';
 import { Label } from '../../components/common/Label';
 import { DocsFooter } from '../../components/docs/DocsFooter';
 import { Callout } from '../../components/common/Callout';
@@ -64,6 +69,9 @@ const mdxComponents = {
   a: Link,
   aside: Callout,
   Callout,
+  OptionsTable,
+  OptionTitle,
+  OptionDescription,
 };
 
 const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
