@@ -2,15 +2,15 @@ import { FC } from 'react';
 
 import { AddIcon } from './AddIcon';
 import { CloseIcon } from './CloseIcon';
-import { PlaylistIcon } from './PlaylistIcon';
+import { PlaylistsIcon } from './PlaylistsIcon';
 import { PlaylistAddIcon } from './PlaylistAddIcon';
 
-export type IconName = 'close' | 'add' | 'playlist' | 'playlist-add';
+export type IconName = 'close' | 'add' | 'playlists' | 'playlist-add';
 
 const iconMap = {
   close: CloseIcon,
   add: AddIcon,
-  playlist: PlaylistIcon,
+  playlists: PlaylistsIcon,
   'playlist-add': PlaylistAddIcon,
 };
 
