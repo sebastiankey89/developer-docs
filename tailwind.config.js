@@ -8,6 +8,8 @@ module.exports = {
           850: '#18202F',
           950: '#000a14',
         },
+        'logo-bg': '#009bd2',
+        'logo-bg-dark': '#29c6ff',
       },
       screens: {
         '1.5xl': '1440px',
