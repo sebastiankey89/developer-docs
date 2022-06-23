@@ -108,7 +108,7 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
                       onClick={() => router.push(card.urlPath)}
                       className="cursor-pointer"
                     >
-                      <Card className="h-full p-6 py-4 hover:border-sky-100 hover:bg-sky-100/50 dark:hover:border-sky-900/50 dark:hover:bg-sky-900/20">
+                      <Card className="h-full p-6 py-4 hover:border-sky-100 hover:bg-sky-100/50 dark:hover:border-sky-900/50 dark:hover:bg-sky-900/40">
                         <h3 className="mt-0 no-underline">{card.title}</h3>
                         {card.label && <Label text={card.label} />}
                         <div className="text-sm text-slate-500 dark:text-slate-400">
