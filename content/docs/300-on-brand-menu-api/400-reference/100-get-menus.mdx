@@ -1,6 +1,35 @@
 ---
 title: GET /v1/menus
-excerpt: Sample excerpt
+excerpt: List the menus your On-Brand Menu API key has access to.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+List the menus your On-Brand Menu API key has access to.
+
+## **Request**
+
+Set the `X-API-Key: [API Key]` header.
+
+```bash
+curl --request GET 'https://menu-api.raydiant.com/v1/menus' \
+     --header 'X-API-Key: [API Key]'
+```
+
+## Response
+
+```json
+[
+  {
+    "id": "cf499066-a415-4dc3-bcce-e5482357b512",
+    "name": "My Menu",
+    "locations": {
+      "name": "Location Name",
+      "restaurnName": "Restaurant Name"
+    }
+  }
+]
+```
+
+## Next Steps
+
+- [Read the full On-Brand Menu API reference](/docs/on-brand-menu-api/reference)
+- [Learn how to create an API key and authenticate](/docs/on-brand-menu-api/api-keys)
