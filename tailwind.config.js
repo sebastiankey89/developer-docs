@@ -1,15 +1,24 @@
+const colors = {
+  gray: {
+    850: '#18202F',
+    950: '#000a14',
+  },
+  navy: '#003670',
+  skyBlue: '#009bd2',
+  limeGreen: '#28d972',
+};
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}', './content/**/*.{md,mdx}'],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        gray: {
-          850: '#18202F',
-          950: '#000a14',
+        ...colors,
+        'logo-bg': {
+          DEFAULT: colors.skyBlue,
+          dark: '#29c6ff',
         },
-        'logo-bg': '#009bd2',
-        'logo-bg-dark': '#29c6ff',
       },
       screens: {
         '1.5xl': '1440px',
