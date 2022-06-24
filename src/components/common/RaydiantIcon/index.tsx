@@ -18,7 +18,7 @@ export const RaydiantIcon: FC<{ name: IconName }> = ({ name }) => {
   const IconComponent = iconMap[name];
   return (
     // Negative margin ensures icon is vertically centered with text
-    <span className="relative top-[6px] inline-flex">
+    <span className="relative top-[4px] inline-flex">
       <IconComponent />
     </span>
   );
