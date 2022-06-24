@@ -18,7 +18,7 @@ class MyDocument extends Document {
           `,
             }}
           />
-          <link rel="shortcut icon" href="/favicon.png" />
+          <link rel="shortcut icon" href="/docs-static/favicon.png" />
         </Head>
         <body>
           <Main />
