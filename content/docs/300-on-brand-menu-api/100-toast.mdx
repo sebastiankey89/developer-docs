@@ -1,6 +1,87 @@
 ---
 title: Toast
-excerpt: Sample excerpt
+excerpt: How to use Toast POS with the On-Brand Menu API.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Get started using [Toast](https://pos.toasttab.com/) with the On-Brand Menu API
+
+## Create a Toast Source
+
+First we need to setup a Toast source for the On-Brand Menu API. Sign in to the Developer Portal and navigate to the [API Keys](https://developers.staging.raydiant.com/api-keys) section:
+
+1. Click the “Create New…” button [TODO: create icon].
+2. Select “API Source” [TODO: source icon].
+3. Name your new API Source to “My Toast Source”.
+4. From the “Source” dropdown, select “Toast”.
+5. Copy the unique location ID for your Toast source to the clipboard.
+
+   ie. `2c92cb2c-eb29-430a-b3d8-33e80dca4956`
+
+6. [Log in to Toast POS](https://pos.toasttab.com/login) in another browser tab.
+7. From the Home page, navigate to the [My Integrations](https://www.toasttab.com/restaurants/admin/integrations/my-integrations) page.
+8. Click “Add Integrations”.
+9. Search for “Raydiant” and click “Add New”.
+10. Select the location(s) you’d like to connect to the On-Brand Menu API.
+11. Click the settings icon [TODO: settings icon] next to the Raydiant integration from the [My Integrations](https://www.toasttab.com/restaurants/admin/integrations/my-integrations) page.
+12. Paste the location ID from step 5 into the Location ID field and click “Apply”
+
+    <img
+      src="/add-raydiant-to-toast.png"
+      alt="Add the Raydiant integration from Toast POS."
+      style={{ maxWidth: 300 }}
+    />
+
+13. Navigate back to the Developer Portal and click “Done”.
+14. Wait 10-15 seconds, if setup correctly you will see your new source successfully connect to your Toast location.
+
+    <img src="/linked-source.png" alt="Linked source" />
+
+<Callout>**Known issue**: After successfully connecting a new Toast source you will need to publish to your location or wait 30 minutes before menus are available to create an API key.</Callout>
+
+To connect multiple locations to the On-Brand Menu API repeat steps 1-13 for each location.
+
+## Menu Groups and Items
+
+Toast menu groups and items nested up to 4-levels deep will be returned from the On-Brand Menu API.
+
+## Modifiers
+
+Only size-based modifiers will be returned from the On-Brand Menu API.
+
+<Callout>The On-Brand Menu API does not currently support groups of sub-items. Toastmodifier groups will be flattened into a single list of sub-items.</Callout>
+
+## Tags
+
+Tags on Toast items and groups will be returned from the On-Brand Menu API.
+
+You can use tags on groups to [query for specific groups](/docs/on-brand-menu-api/reference/get-groups) from the On-Brand Menu API.
+
+## Sales Category
+
+A Toast item’s sales category will be returned from the On-Brand Menu API.
+
+## Visibility
+
+All items and groups in a Toast menu will be returned from On-Brand Menu API.
+
+We recommend building a specific Toast menu for your digital menus to limit the amount of groups and items that show up on your screens.
+
+## Sorting Items and Groups
+
+The sort order of items and groups returned by the On-Brand Menu API is controlled via the order of the items and group set in Toast POS.
+
+## Inventory
+
+Set an items inventory status to “Out of Stock” or it’s “Quantity” to `0` to mark the item as out of stock.
+
+## Publishing Updates
+
+Menu updates are applied whenever you publish a location and stock updates are applied when you hit “Save” in Toast POS.
+
+We’ve integrated with Toast’s webhooks so that menu and stock updates are available from the On-Brand Menu API in under a minute.
+
+## Next Steps
+
+- [Create an On-Brand Menu API key](/docs/on-brand-menu-api/api-keys)
+- [On-Brand Menu API reference](/docs/on-brand-menu-api/reference)
+- [Check out the Whole Foods Menu sample app](/docs/get-started/sample-apps/whole-foods-menu)

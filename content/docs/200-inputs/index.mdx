@@ -1,7 +1,29 @@
 ---
 title: Inputs
 show_child_cards: true
-excerpt: Sample excerpt
+excerpt: Customize your app in the Raydiant Dashboard.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Inputs allow users to customize your app in the Raydiant Dashboard, for example:
+
+- Set the location for a Weather app with the _text_ input.
+- Select a channel for a Newsfeed app with the _select_ input.
+- Enable a QR code for a Custom Menu app with the _toggle_ input.
+
+The URL template of your app receives the values of its inputs by specifying where to inject them using the syntax `:input-id`:
+
+```jsx
+https://my-weather-app.com?location=:location
+https://my-news-app.com/:channel
+https://my-menus-app.com/juices?qrcode=:qrcode
+```
+
+When users customize your app in the Raydiant Dashboard the input values are injected into the URL template to render the resulting URL:
+
+```jsx
+https://my-weather-app.com?location=New York
+https://my-news-app.com/politics
+https://my-menus-app.com/juices?qrcode=true
+```
+
+Raydiant supports a variety of input types you can use to customize your app. Check out the [Build an App](/docs/get-started/build-an-app) tutorial for an in-depth walkthrough on how to add inputs.

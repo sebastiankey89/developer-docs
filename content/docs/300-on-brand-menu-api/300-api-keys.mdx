@@ -1,6 +1,35 @@
 ---
 title: API Keys
-excerpt: Sample excerpt
+excerpt: Create an On-Brand Menu API key for your menus and how to authorize.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+On-Brand Menu API keys allow you to securely access your menu data. API keys can only be used to read menu data from selected menus, they cannot be used to write or make calls to the underlying POS provider.
+
+Before you can create an API key you must first create an API source for one of our [supported POS providers](/docs/on-brand-menu-api).
+
+<Callout>Generating your own API keys is currently only available for [Toast](/docs/on-brand-menu-api/toast). You will be given an API key by our team as part of the [Revel](/docs/on-brand-menu-api/revel) setup process.</Callout>
+
+## Create an API Key
+
+API keys can be created and managed from the Developer Portal’s [API keys](https://developers.raydiant.com/api-keys) section.
+
+1. Click the “Create New…” button [create icon].
+2. Select “API Key” [API key icon].
+3. Name your new API Key to “My API Key”.
+4. From the “Source” dropdown, select an API source you’ve already created.
+5. Select the menu(s) you’d like the API key to be able to access. The menus your API key has permissions to access will show up as “API Ingredients” for the API key.
+6. Click “Generate API key”.
+7. Copy the generated API key to your clipboard.
+
+   ie. `a98b440c16414f9c8a8c3fc239ce84fe`
+
+## How to Authenticate
+
+To make an authenticated request to the On-Brand Menu API set the `X-API-Key` header.
+
+For example: `X-API-Key: a98b440c16414f9c8a8c3fc239ce84fe`.
+
+## Next Steps
+
+- [On-Brand Menu API reference](/docs/on-brand-menu-api/reference)
+- [Check out the Whole Foods Menu sample app](/docs/get-started/sample-apps/whole-foods-menu)

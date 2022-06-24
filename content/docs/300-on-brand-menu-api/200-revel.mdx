@@ -1,6 +1,70 @@
 ---
 title: Revel
-excerpt: Sample excerpt
+excerpt: How to use Revel POS with the On-Brand Menu API.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Get started using [Revel](https://revelsystems.com/) with the On-Brand Menu API.
+
+## Create a Revel Source
+
+Revel support is currently in private beta, contact [product@support.com](mailto:product@support.com) and we’ll be in touch.
+
+## Categories
+
+Revel categories and sub-categories will be returned as menu groups via the On-Brand Menu API. To match the [behavior of the Revel POS](https://reveluniversity.revelsystems.com/s/products/menu-building), categories will be flattened with their sub-categories when the category and sub-category share the same name.
+
+For example, a “Breakfast” category with a “Breakfast” sub-category will only return a single “Breakfast” group with it’s products from the On-Brand Menu API.
+
+## Products
+
+Revel products will be returned as menu items via the On-Brand Menu API.
+
+## Modifiers
+
+Revel modifiers will be returned as sub-items from the On-Brand Menu API. Sub-items are items that do not belong to a group but are instead associated with another menu item.
+
+<Callout>The On-Brand Menu API does not currently support groups of sub-items. Revel modifier classes attached to a product will be flattened into a single list of sub-items.</Callout>
+
+## Calories
+
+Revel does not natively support calories on products but you can use the “Alternative Lookup” field to set calorie data.
+
+The On-Brand Menu API looks for an alternative lookup value with the syntax `calories:**number**`. For example, to set the calories of an item to 110, add an alternative lookup value of `calories:110`.
+
+Calories are only supported on products since Revel does not support “Alternate Lookup” on modifiers.
+
+## Tags
+
+Values in the “Alternative Lookup” field of a Revel product are converted to menu item tags in the On-Brand Menu API. You can use these tags to set custom data on an item like `featured` or `location:Napa Valley`.
+
+Provide a comma-separated list of values as the “Third Party ID” field to set menu group tags. For example, a third party ID value of `entrees, featured` on a category will be converted to two tags (`entrees` and `featured`) on the group.
+
+You can use tags on groups to [query for specific groups](https://www.notion.so/GET-v1-groups-3210ff05d7674f70bb6e2b7426c58878) from the On-Brand Menu API.
+
+## Product Classes
+
+The Revel product class of a product will be set as the item’s `salesCategory` in the On-Brand Menu API.
+
+## Visibility
+
+Only Revel products, modifiers and categories marked as **active** and **available for online** will be returned from the On-Brand Menu API.
+
+## Sorting Items and Groups
+
+The sort order of items and groups returned by the On-Brand Menu API is controlled via the “Sort” field of Revel categories, product and modifiers.
+
+## Inventory
+
+Set the current inventory of a Revel product to `0` to mark it as out of stock.
+
+## Publishing Updates
+
+The On-Brand Menu API periodically checks for updates to your Revel establishments. Updates are applied whenever you hit “Save” in Revel.
+
+The polling frequency depends on how many menus you want to access via your On-Brand Menu API key. The setup process for a Revel source will determine an appropriate polling frequency to avoid hitting Revel API limits.
+
+## Next Steps
+
+- [Create an On-Brand Menu API key](/docs/on-brand-menu-api/api-keys)
+- [On-Brand Menu API reference](/docs/on-brand-menu-api/reference)
+- [Check out the Whole Foods Menu sample app](/docs/get-started/sample-apps/whole-foods-menu)

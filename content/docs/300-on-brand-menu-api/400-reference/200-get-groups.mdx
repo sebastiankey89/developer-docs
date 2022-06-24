@@ -1,6 +1,172 @@
 ---
 title: GET /v1/groups
-excerpt: Sample excerpt
+excerpt: Query menu groups by menu ID, group ID or tag.
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Returns the groups for the authenticated API Key. Query menu groups by menu ID, group ID or tag.
+
+## Request
+
+Set the `X-API-Key: [API Key]` header.
+
+### Query Parameters
+
+<OptionsTable>
+  <OptionTitle>
+    `tags`
+  </OptionTitle>
+  <OptionDescription>
+    Filter for groups for the provided tag(s), multiple tags are “anded” together
+  </OptionDescription>
+  <OptionTitle>
+    `groups`
+  </OptionTitle>
+  <OptionDescription>
+    Filter for groups for the provided group id(s), useful for paginating child groups
+  </OptionDescription>
+   <OptionTitle>
+    `menus`
+  </OptionTitle>
+  <OptionDescription>
+    Filter for groups for the provided menu id(s), useful for multi-location restaurants
+  </OptionDescription>
+   <OptionTitle>
+    `page`
+  </OptionTitle>
+  <OptionDescription>
+    The page number to return more results
+  </OptionDescription>
+   <OptionTitle>
+    `pageSize`
+  </OptionTitle>
+  <OptionDescription>
+    The number of groups to return per page (max: 50, default 10)
+  </OptionDescription>
+   <OptionTitle>
+    `depth`
+  </OptionTitle>
+  <OptionDescription>
+    How many levels of child groups and item modifiers to traverse (max: 4, default: 1)
+  </OptionDescription>
+</OptionsTable>
+
+
+```bash
+curl --request GET 'https://menu-api.raydiant.com/v1/groups?tags=burgers&menus=[Menu ID]' \
+     --header 'X-API-Key: [API Key]'
+```
+
+## Response
+
+```json
+{
+  "metadata": {
+    "groups": {
+      "total": 1
+    }
+  },
+  "groups": [
+    {
+      "metadata": {
+        "groups": {
+          "total": 2
+        },
+        "items": {
+          "total": 0
+        }
+      },
+      "id": "b0261b66-68f1-409d-8d09-08f12f1d6d6e",
+      "name": "Wine & Beer",
+      "description": null,
+      "tags": ["wine-and-beer"],
+      "groups": [
+        {
+          "metadata": {
+            "groups": {
+              "total": 6
+            },
+            "items": {
+              "total": 0
+            }
+          },
+          "id": "a2c9453d-c46c-449c-ab34-260bb91029de",
+          "name": "Wine",
+          "description": null,
+          "tags": ["wine"],
+          "groups": [
+            {
+              "metadata": {
+                "groups": {
+                  "total": 0
+                },
+                "items": {
+                  "total": 1
+                }
+              },
+              "id": "4d28f5e9-b07f-41bc-a65d-4d33cad8f563",
+              "name": "Rosé",
+              "description": null,
+              "tags": [],
+              "groups": [],
+              "items": [
+                {
+                  "metadata": {
+                    "items": {
+                      "total": 2
+                    }
+                  },
+                  "id": "a8b6f5a5-bcf6-4692-b9ea-328ff690251c",
+                  "name": "Bieler Père et Fils",
+                  "description": "Rosé",
+                  "price": null,
+                  "calories": null,
+                  "tags": ["location:Provence, France"],
+                  "inStock": true,
+                  "items": [
+                    {
+                      "metadata": {
+                        "items": {
+                          "total": 0
+                        }
+                      },
+                      "id": "e458a016-9580-4727-9420-1090de029ce2",
+                      "name": "Glass",
+                      "description": null,
+                      "price": 8,
+                      "calories": null,
+                      "tags": ["size"],
+                      "inStock": true,
+                      "items": []
+                    },
+                    {
+                      "metadata": {
+                        "items": {
+                          "total": 0
+                        }
+                      },
+                      "id": "a3aa89c9-37b2-447f-8c7d-683b70cd3e5f",
+                      "name": "Bottle",
+                      "description": null,
+                      "price": 32,
+                      "calories": null,
+                      "tags": ["size"],
+                      "inStock": true,
+                      "items": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "items": []
+        }
+      ],
+      "items": []
+    }
+  ]
+}
+```
+## Next Steps
+
+- [Read the full On-Brand Menu API reference](/docs/on-brand-menu-api/reference)
+- [Learn how to create an API key and authenticate](/docs/on-brand-menu-api/api-keys)
