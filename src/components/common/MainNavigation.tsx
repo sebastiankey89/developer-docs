@@ -43,9 +43,10 @@ interface NavLinkProps {
 
 const NavLink: FC<NavLinkProps> = ({ label, hideLabel = false, icon, url }) => {
   const router = useRouter();
+
   const targetUrl = url.replace('/', '');
-  const currentTopLevelUrl = router.pathname.split('/')[1];
-  const active = !isExternalUrl(url) && targetUrl.includes(currentTopLevelUrl);
+  const currentRootPath = router.pathname.split('/')[1];
+  const active = !isExternalUrl(url) && targetUrl.includes(currentRootPath);
 
   return (
     <Link href={url}>
