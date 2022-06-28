@@ -8,8 +8,10 @@ import config from 'src/config';
 
 interface DocLayoutProps {
   children: React.ReactNode;
-  urlPath: string;
-  imagePath: string;
+  urlPath?: string;
+  imagePath?: string;
+  title?: string;
+  description?: string;
 }
 
 export const DocLayout: FC<DocLayoutProps> = ({ children, ...customMeta }) => {
