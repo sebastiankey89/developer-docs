@@ -21,7 +21,7 @@ export const OptionDescription: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   return (
-    <div className="-mt-px border-t border-gray-200 px-4 pb-2 dark:border-gray-800 md:col-span-3 lg:col-span-1 xl:col-span-3">
+    <div className="option-description -mt-px border-t border-gray-200 px-4 pb-2 dark:border-gray-800 md:col-span-3 lg:col-span-1 xl:col-span-3">
       {children}
     </div>
   );
