@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 import { MainNavigation } from '../common/MainNavigation';
 import { Footer } from '../common/Footer';
-import config from 'src/config';
+import config from '../../config';
 
 interface DocLayoutProps {
   children: React.ReactNode;
