@@ -1,3 +1,4 @@
+// Modified from: https://github.com/contentlayerdev/website/blob/main/src/components/common/Container.tsx
 import { FC } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
