@@ -30,7 +30,7 @@ const NavLink: FC<NavLinkProps> = ({
   return (
     <div
       className={classNames(
-        'group flex h-8 items-center justify-between space-x-2 whitespace-nowrap rounded-md px-3 text-sm leading-none',
+        'group flex h-12 md:h-8 items-center justify-between space-x-2 whitespace-nowrap rounded-md px-3 text-sm leading-none',
         url == activePath
           ? `${
               level == 0 ? 'font-medium' : 'font-normal'
