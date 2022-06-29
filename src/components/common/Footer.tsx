@@ -49,18 +49,18 @@ export const Footer: FC = () => {
             </a>
           </Link>
         </div>
-        <div className="space-y-8 md:flex md:space-y-0 md:space-x-16">
+        <div className="space-y-14 md:flex md:space-y-0 md:space-x-16">
           {content.menus.map(({ title, elements }, index) => (
             <div key={index}>
-              <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-800 dark:text-slate-200">
+              <div className="text-xs font-semibold uppercase tracking-wide text-slate-800 dark:text-slate-200 mb-6 md:mb-0">
                 {title}
-              </h4>
-              <ul className="mx-0 mt-4 list-none space-y-2 text-sm">
+              </div>
+              <ul className="mx-0 mt-4 list-none md:space-y-2 text-sm">
                 {elements.map(({ label, url }, index) => (
                   <li key={index}>
                     <Link href={url}>
                       <a
-                        className="inline-flex items-center space-x-1 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
+                        className="h-12 md:h-auto inline-flex items-center space-x-1 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
                         target={isExternalUrl(url) ? '_blank' : undefined}
                       >
                         <span>{label}</span>
