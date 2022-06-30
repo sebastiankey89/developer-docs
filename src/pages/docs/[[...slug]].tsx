@@ -89,7 +89,10 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const MDXContent = useMDXComponent(doc.body.code || '');
 
   return (
-    <DocLayout title={doc.title + ' – Contentlayer'} description={doc.excerpt}>
+    <DocLayout
+      title={doc.title + ' – Raydiant Developer Docs'}
+      description={doc.excerpt}
+    >
       <div className="relative mx-auto w-full max-w-screen-2xl lg:flex lg:items-start">
         <div
           style={{ height: 'calc(100vh - 64px)' }}
