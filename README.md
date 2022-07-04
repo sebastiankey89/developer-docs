@@ -23,3 +23,7 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Credits
+
+The Raydiant Developer Docs are built using the awesome [ContentLayer](https://www.contentlayer.dev/) library to make it easy to process Markdown files. Special thanks to the ContentLayer team for open-sourcing their docs, which we largely forked for our own.
